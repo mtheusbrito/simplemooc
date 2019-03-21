@@ -12,7 +12,7 @@ class CourseManager(models.Manager):
 class Course(models.Model):
 
     name = models.CharField('Nome', max_length=100)
-    slug = models.SlugField('Alatho', max_length=50)
+    slug = models.SlugField('Atalho', max_length=50)
     description = models.TextField('Descrição', blank=True)
     start_date = models.DateField('Data de Início', null=True, blank=True)
     image = models.ImageField(
@@ -21,3 +21,11 @@ class Course(models.Model):
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
     objects = CourseManager()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Curso'
+        verbose_name_plural = 'Cursos'
+        ordering = ['-name']
