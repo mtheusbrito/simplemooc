@@ -53,7 +53,11 @@
  <div class='pure-u-1'>
 
     <h3>Tire sua dúvida sobre o Curso</h3>
-    <form class='pure-form pure-form-aligned' method='POST'>
+    {% if is_valid %}
+    
+    <p style='color:green'>Você enviou o formulario com sucesso!</p>
+    {% endif %}
+    <form class='pure-form pure-form-aligned' method='POST' action='#contato'>
        {% csrf_token %}
         <fieldset>
 
